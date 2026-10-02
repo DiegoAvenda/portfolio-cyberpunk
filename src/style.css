@@ -1,0 +1,113 @@
+@import "tailwindcss";
+
+/* Tailwind v4 theme (migrated from the old tailwind.config in the HTML) */
+@theme {
+  --color-cyber-yellow: #fcee0a;
+  --color-cyber-cyan: #00f0ff;
+  --color-cyber-magenta: #ff003c;
+  --color-cyber-bg: #050505;
+  --color-cyber-surface: #121212;
+
+  --font-mono: "Share Tech Mono", ui-monospace, monospace;
+
+  --shadow-neon-cyan: 0 0 10px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.3);
+  --shadow-neon-magenta: 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.3);
+  --shadow-neon-yellow: 0 0 10px #fcee0a, 0 0 20px rgba(252, 238, 10, 0.3);
+}
+
+/* Base Styles & Background Grid */
+body {
+  background-color: #050505;
+  background-image:
+    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+  background-size: 40px 40px;
+  color: #e5e7eb;
+  overflow-x: hidden;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+  border-left: 1px solid #ff003c;
+}
+::-webkit-scrollbar-thumb {
+  background: #fcee0a;
+}
+
+/* Cyberpunk Clipped Corners */
+.clip-card {
+  clip-path: polygon(0 0, calc(100% - 30px) 0, 100% 30px, 100% 100%, 30px 100%, 0 calc(100% - 30px));
+}
+.clip-button {
+  clip-path: polygon(0 0, calc(100% - 15px) 0, 100% 15px, 100% 100%, 15px 100%, 0 calc(100% - 15px));
+}
+.clip-image {
+  clip-path: polygon(0 0, 100% 0, 100% calc(100% - 20px), calc(100% - 20px) 100%, 0 100%);
+}
+
+/* Glitch Text Effect */
+.glitch-wrapper {
+  position: relative;
+}
+.glitch {
+  position: relative;
+  color: white;
+  z-index: 1;
+}
+.glitch::before,
+.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #050505;
+}
+.glitch::before {
+  left: 3px;
+  text-shadow: -2px 0 #ff003c;
+  clip: rect(24px, 550px, 90px, 0);
+  animation: glitch-anim-2 3s infinite linear alternate-reverse;
+  z-index: -1;
+}
+.glitch::after {
+  left: -3px;
+  text-shadow: -2px 0 #00f0ff;
+  clip: rect(85px, 550px, 140px, 0);
+  animation: glitch-anim 2.5s infinite linear alternate-reverse;
+  z-index: -2;
+}
+
+@keyframes glitch-anim {
+  0% { clip: rect(10px, 9999px, 80px, 0); transform: translate(0); }
+  20% { clip: rect(40px, 9999px, 10px, 0); transform: translate(-3px, 3px); }
+  40% { clip: rect(80px, 9999px, 50px, 0); transform: translate(3px, -3px); }
+  60% { clip: rect(30px, 9999px, 90px, 0); transform: translate(-3px, 3px); }
+  80% { clip: rect(60px, 9999px, 20px, 0); transform: translate(3px, -3px); }
+  100% { clip: rect(20px, 9999px, 70px, 0); transform: translate(0); }
+}
+@keyframes glitch-anim-2 {
+  0% { clip: rect(65px, 9999px, 100px, 0); transform: translate(0); }
+  20% { clip: rect(25px, 9999px, 45px, 0); transform: translate(3px, -3px); }
+  40% { clip: rect(75px, 9999px, 15px, 0); transform: translate(-3px, 3px); }
+  60% { clip: rect(15px, 9999px, 85px, 0); transform: translate(3px, -3px); }
+  80% { clip: rect(85px, 9999px, 35px, 0); transform: translate(-3px, 3px); }
+  100% { clip: rect(45px, 9999px, 65px, 0); transform: translate(0); }
+}
+
+/* Scanline Overlay for Images/Placeholders */
+.scanline-bg {
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0),
+    rgba(255, 255, 255, 0) 50%,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.2)
+  );
+  background-size: 100% 4px;
+}
