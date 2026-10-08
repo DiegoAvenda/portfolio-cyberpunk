@@ -29,7 +29,7 @@ export const projects = [
   {
     slug: 'project-02',
     hex: '0x02B7',
-    title: 'PROJECT_02',
+    title: 'Contaco',
     description: 'Una línea: qué es y qué demuestra.',
     status: 'STATUS: ACTIVE',
     accent: 'magenta',
@@ -48,7 +48,7 @@ export const projects = [
   {
     slug: 'project-03',
     hex: '0x03C9',
-    title: 'PROJECT_03',
+    title: 'FinCheck',
     description: 'Una línea: qué es y qué demuestra.',
     status: 'STATUS: ACTIVE',
     accent: 'yellow',
@@ -56,6 +56,12 @@ export const projects = [
     placeholder: '[ VISUAL_DATA_UNAVAILABLE ]',
     techs: [{ label: 'Vanilla_JS', color: 'yellow' }],
     links: { demo: null, repo: null },
-    caseStudy: null,
+    caseStudy: {
+      problem: 'Texto de relleno.',
+      architecture: 'Texto de relleno.',
+      tradeoffs: [{ chose: 'A', over: 'B', because: 'Razón.' }],
+      challenges: [{ issue: 'Problema.', fix: 'Solución.' }],
+      retrospective: 'Texto de relleno.',
+    },
   },
 ]

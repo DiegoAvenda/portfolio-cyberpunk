@@ -153,15 +153,19 @@ function renderDetailContent(p) {
       <div class="absolute bottom-0 right-0 w-8 h-8 border-b-2 border-r-2 ${a.corner}"></div>
     </div>`
 
-  const c = p.caseStudy
-  if (!c) {
-    return (
-      header +
-      `<p class="border border-dashed border-gray-700 text-gray-500 text-sm tracking-widest uppercase p-6 text-center">// CASE FILE PENDING — DATA ENCRYPTED</p>`
-    )
+  const c = p.caseStudy ?? {
+    problem: '[ DATA ENCRYPTED — CASE FILE PENDING ]',
+    architecture: '[ DATA ENCRYPTED — CASE FILE PENDING ]',
+    tradeoffs: [
+      { chose: '[ PENDING ]', over: '[ PENDING ]', because: 'Details coming soon.' },
+    ],
+    challenges: [
+      { issue: '[ PENDING ]', fix: 'Details coming soon.' },
+    ],
+    retrospective: '[ DATA ENCRYPTED — CASE FILE PENDING ]',
   }
 
-  const tradeoffs = c.tradeoffs
+  const tradeoffs = (c.tradeoffs ?? [])
     .map(
       (t) => `
         <li class="mb-2">
@@ -173,7 +177,7 @@ function renderDetailContent(p) {
     )
     .join('')
 
-  const challenges = c.challenges
+  const challenges = (c.challenges ?? [])
     .map(
       (ch) => `
         <li class="mb-3">
