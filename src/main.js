@@ -95,8 +95,8 @@ function projectCard(p) {
               <span class="text-gray-700 font-bold tracking-widest text-xl opacity-50 transform -rotate-12 ${a.placeholderHover} transition-colors duration-500">${p.placeholder}</span>
             </div>`
         }
-      </div>` +
-    `\n      <div class="p-6 pt-2">`
+      </div>
+      <div class="p-6 pt-2">
         <h3 class="text-2xl font-bold text-white mb-1 ${a.titleHover} transition-colors uppercase">${p.title}</h3>
         <p class="text-xs tracking-widest mb-3 ${a.status} opacity-70">// PROVES: ${p.proves}</p>
         <p class="text-gray-400 text-sm mb-6 h-20 overflow-hidden">${p.description}</p>
