@@ -2,16 +2,22 @@ import '@fontsource/share-tech-mono/400.css'
 import './style.css'
 import { projects } from './data/projects.js'
 
-// Estilos de badge por color. Strings completos para que Tailwind v4
-// los detecte en el escaneo (no armarlos con template strings).
+import avencodeImg from './assets/avencode.png'
+import contacoImg from './assets/contaco.png'
+import fincheckImg from './assets/fincheck.png'
+
+const PROJECT_IMAGES = {
+  avendcodes: avencodeImg,
+  contaco: contacoImg,
+  fincheck: fincheckImg,
+}
+
 const TECH_STYLES = {
   yellow: 'border-cyber-yellow text-cyber-yellow bg-cyber-yellow/10',
   cyan: 'border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10',
   magenta: 'border-cyber-magenta text-cyber-magenta bg-cyber-magenta/10',
 }
 
-// Variantes de acento por proyecto. Las clases están en literales
-// para que Tailwind v4 las detecte en el escaneo de contenido.
 const ACCENTS = {
   cyan: {
     status: 'text-cyber-cyan',
@@ -47,7 +53,6 @@ const ACCENTS = {
 
 const accentOf = (p) => ACCENTS[p.accent] ?? ACCENTS.cyan
 
-// Links pequeños de demo/repo (solo se renderizan si existen)
 function linkButtons(p, a, size = 'text-xs px-3 py-1') {
   return Object.entries({ DEMO: p.links?.demo, REPO: p.links?.repo })
     .filter(([, href]) => href)
@@ -70,6 +75,8 @@ function projectCard(p) {
 
   const links = linkButtons(p, a)
 
+  const projectImg = PROJECT_IMAGES[p.slug]
+
   return `
     <article data-card="${p.slug}" class="clip-card bg-cyber-surface border border-gray-800 relative group ${a.cardHover} transition-colors duration-300 cursor-pointer">
       <div class="flex justify-between items-center px-4 py-2 border-b border-gray-800 bg-black/50 text-xs text-gray-500">
@@ -78,14 +85,18 @@ function projectCard(p) {
       </div>
 
       <div class="h-48 w-full bg-gray-900 relative clip-image m-4 border border-gray-800 overflow-hidden ${a.imageHover} transition-colors">
-        <div class="absolute inset-0 scanline-bg opacity-30 z-10"></div>
-        <div class="absolute inset-0" style="background-image: radial-gradient(#333 1px, transparent 1px); background-size: 10px 10px;"></div>
-        <div class="absolute inset-0 flex items-center justify-center z-20">
-          <span class="text-gray-700 font-bold tracking-widest text-xl opacity-50 transform -rotate-12 ${a.placeholderHover} transition-colors duration-500">${p.placeholder}</span>
-        </div>
-      </div>
-
-      <div class="p-6 pt-2">
+        <div class="absolute inset-0 scanline-bg opacity-30 z-10 pointer-events-none"></div>
+        ${
+          projectImg
+            ? `<img src="${projectImg}" alt="${p.title}" class="w-full h-full object-cover object-top opacity-85 group-hover:opacity-100 group-hover:scale-105 transition-all duration-500" />`
+            : `
+            <div class="absolute inset-0" style="background-image: radial-gradient(#333 1px, transparent 1px); background-size: 10px 10px;"></div>
+            <div class="absolute inset-0 flex items-center justify-center z-20">
+              <span class="text-gray-700 font-bold tracking-widest text-xl opacity-50 transform -rotate-12 ${a.placeholderHover} transition-colors duration-500">${p.placeholder}</span>
+            </div>`
+        }
+      </div>` +
+    `\n      <div class="p-6 pt-2">`
         <h3 class="text-2xl font-bold text-white mb-1 ${a.titleHover} transition-colors uppercase">${p.title}</h3>
         <p class="text-xs tracking-widest mb-3 ${a.status} opacity-70">// PROVES: ${p.proves}</p>
         <p class="text-gray-400 text-sm mb-6 h-20 overflow-hidden">${p.description}</p>
@@ -108,8 +119,6 @@ function renderProjects() {
   const count = document.getElementById('projects-count')
   if (count) count.textContent = String(projects.length).padStart(2, '0')
 
-  // Click en cualquier parte de la card abre el detalle,
-  // excepto clicks en links reales (demo/repo, botón).
   grid.addEventListener('click', (e) => {
     if (e.target.closest('a')) return
     const card = e.target.closest('[data-card]')
