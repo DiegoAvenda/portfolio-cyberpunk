@@ -3,11 +3,14 @@ export const projects = [
     slug: 'avendcodes',
     hex: '0x01A4',
     title: 'AvendCodes',
+    productType: 'Interactive learning product',
+    role: 'Sole Developer & Product Architect',
     description:
       'An interactive, zero-setup course that teaches JavaScript, DOM, Canvas 2D and core data structures by building a real Pixel Art Editor — 100% in the browser, no install.',
     status: 'STATUS: ACTIVE',
     accent: 'cyan',
-    proves: 'RUNTIME',
+    proves: 'INTERACTIVE_LEARNING_RUNTIME',
+    capabilities: ['Sandboxed code execution', 'Lesson content delivery', 'Local progress persistence'],
     placeholder: '[ VISUAL_DATA_UNAVAILABLE ]',
     techs: [
       { label: 'SvelteKit', color: 'magenta' },
@@ -97,11 +100,14 @@ export const projects = [
     slug: 'contaco',
     hex: '0x02B7',
     title: 'Contaco',
+    productType: 'Multi-tenant restaurant operations SaaS',
+    role: 'Sole Developer & Software Architect',
     description:
       'A multi-tenant SvelteKit app unifying in-store POS, commission-free online ordering with Stripe, expense tracking, and SAT-ready RESICO fiscal estimates for small Mexican restaurants — money in integer cents, never floats.',
     status: 'STATUS: ACTIVE',
     accent: 'magenta',
-    proves: 'FRAMEWORK',
+    proves: 'COMMERCE_AND_FISCAL_SYSTEMS',
+    capabilities: ['POS and online ordering', 'Idempotent Stripe payments', 'SAT-ready fiscal estimates'],
     placeholder: '[ VISUAL_DATA_UNAVAILABLE ]',
     techs: [
       { label: 'SvelteKit', color: 'magenta' },
@@ -182,11 +188,14 @@ export const projects = [
     slug: 'fincheck',
     hex: '0x03C9',
     title: 'FinCheck',
+    productType: 'Personal finance web application',
+    role: 'Full-Stack Developer',
     description:
       'A personal finance dashboard that answers where your money goes, flags over-budget spending, scores financial health, and generates savings advice — migrated from AWS Amplify Gen 2 to self-hostable Better Auth + MongoDB.',
     status: 'STATUS: ACTIVE',
     accent: 'yellow',
-    proves: 'FULL_STACK',
+    proves: 'AUTHENTICATED_FINANCE_PLATFORM',
+    capabilities: ['Budget monitoring', 'Financial health scoring', 'Self-hostable authentication'],
     placeholder: '[ VISUAL_DATA_UNAVAILABLE ]',
     techs: [
       { label: 'Next.js_16', color: 'yellow' },

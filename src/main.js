@@ -74,6 +74,9 @@ function projectCard(p) {
     .join('')
 
   const links = linkButtons(p, a)
+  const capabilities = (p.capabilities ?? [])
+    .map((capability) => `<li class="text-gray-400 text-xs">${escapeHtml(capability)}</li>`)
+    .join('')
 
   const projectImg = PROJECT_IMAGES[p.slug]
 
@@ -97,9 +100,11 @@ function projectCard(p) {
         }
       </div>
       <div class="p-6 pt-2">
+        <p class="text-xs tracking-widest mb-2 ${a.status} opacity-80">${p.productType}</p>
         <h3 class="text-2xl font-bold text-white mb-1 ${a.titleHover} transition-colors uppercase">${p.title}</h3>
-        <p class="text-xs tracking-widest mb-3 ${a.status} opacity-70">// PROVES: ${p.proves}</p>
-        <p class="text-gray-400 text-sm mb-6 h-20 overflow-hidden">${p.description}</p>
+        <p class="text-xs text-gray-500 mb-3 uppercase">${p.role}</p>
+        <p class="text-gray-400 text-sm mb-4 min-h-20">${p.description}</p>
+        <ul class="space-y-1 mb-5 border-l-2 ${a.corner} pl-3">${capabilities}</ul>
         <div class="flex flex-wrap gap-2 mb-6">${badges}</div>
         <a href="#/project/${p.slug}"
            class="block w-full text-center clip-button py-3 bg-transparent border font-bold uppercase transition-all duration-300 ${a.button}">
@@ -118,6 +123,8 @@ function renderProjects() {
 
   const count = document.getElementById('projects-count')
   if (count) count.textContent = String(projects.length).padStart(2, '0')
+  const heroCount = document.getElementById('projects-count-hero')
+  if (heroCount) heroCount.textContent = String(projects.length).padStart(2, '0')
 
   grid.addEventListener('click', (e) => {
     if (e.target.closest('a')) return
@@ -178,7 +185,8 @@ function renderDetailContent(p) {
       </div>
       <div class="p-6 md:p-8">
         <h2 class="text-3xl md:text-5xl font-bold text-white uppercase tracking-tight mb-2">${p.title}</h2>
-        <p class="text-xs tracking-widest mb-4 ${a.status} opacity-70">// PROVES: ${p.proves}</p>
+        <p class="text-xs tracking-widest mb-1 ${a.status} opacity-80">${p.productType}</p>
+        <p class="text-xs text-gray-500 mb-4 uppercase">${p.role}</p>
         <p class="text-gray-400 mb-6">${p.description}</p>
         <div class="flex flex-wrap gap-2 mb-6">${badges}</div>
         ${links ? `<div class="flex flex-wrap gap-3">${links}</div>` : ''}
@@ -224,7 +232,7 @@ function renderDetailContent(p) {
     header +
     `
     <div class="clip-card bg-cyber-surface border border-gray-800 p-6 md:p-8 text-sm leading-relaxed">
-      ${caseSection('PROBLEM', a, renderProse(c.problem, a))}
+      ${caseSection('PRODUCT PROBLEM', a, renderProse(c.problem, a))}
       ${caseSection('ARCHITECTURE', a, renderProse(c.architecture, a))}
       ${caseSection('TRADEOFFS', a, `<ul>${tradeoffs}</ul>`)}
       ${caseSection('CHALLENGES', a, `<ul>${challenges}</ul>`)}
@@ -234,28 +242,21 @@ function renderDetailContent(p) {
 }
 
 function showGrid() {
-  document.getElementById('home')?.classList.remove('hidden')
-  document.getElementById('projects')?.classList.remove('hidden')
-  document.getElementById('contact-terminal')?.classList.remove('hidden')
+  document.querySelectorAll('[data-home-section]').forEach((el) => el.classList.remove('hidden'))
   document.getElementById('project-detail')?.classList.add('hidden')
 }
 
 function showDetail(slug) {
   const p = projects.find((x) => x.slug === slug)
-  const home = document.getElementById('home')
-  const grid = document.getElementById('projects')
-  const terminal = document.getElementById('contact-terminal')
   const detail = document.getElementById('project-detail')
   const content = document.getElementById('project-detail-content')
-  if (!p || !grid || !detail || !content) {
+  if (!p || !detail || !content) {
     showGrid()
     return
   }
   content.innerHTML = renderDetailContent(p)
   document.title = `${p.title} // CYBERPUNK_PORTFOLIO`
-  home?.classList.add('hidden')
-  grid.classList.add('hidden')
-  terminal?.classList.add('hidden')
+  document.querySelectorAll('[data-home-section]').forEach((el) => el.classList.add('hidden'))
   detail.classList.remove('hidden')
   window.scrollTo({ top: 0, behavior: 'instant' in window ? 'instant' : 'auto' })
 }

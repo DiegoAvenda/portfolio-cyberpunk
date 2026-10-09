@@ -3,7 +3,26 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Full Stack Developer // CYBERPUNK_PORTFOLIO</title>
+    <title>Diego Avendaño — Independent Software Developer // Portfolio</title>
+    <meta
+      name="description"
+      content="Independent software developer building production-ready web products with SvelteKit, Next.js, Node.js and MongoDB."
+    />
+    <meta name="author" content="Diego Avendaño" />
+    <meta
+      name="keywords"
+      content="software developer, full-stack developer, sveltekit, next.js, node.js, mongodb, SaaS, portfolio"
+    />
+    <meta name="theme-color" content="#050505" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Diego Avendaño — Independent Software Developer" />
+    <meta
+      property="og:description"
+      content="Three production-ready software products with architecture, tradeoffs, and delivery details."
+    />
+    <!-- SEO / social preview: set canonical + og:image once deployed -->
+    <!-- <link rel="canonical" href="https://your-domain.com/" /> -->
+    <!-- <meta property="og:image" content="https://your-domain.com/og-cover.png" /> -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
   </head>
   <body
@@ -14,7 +33,8 @@
     >
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="flex items-center justify-between h-16">
-          <div
+          <a
+            href="#home"
             class="flex items-center space-x-2 text-cyber-yellow group cursor-pointer"
           >
             <span class="text-xl font-bold animate-pulse">&gt;_</span>
@@ -22,34 +42,68 @@
               class="text-lg font-bold tracking-widest uppercase group-hover:text-cyber-cyan transition-colors duration-300"
               >Net_Runner</span
             >
-          </div>
+          </a>
           <div class="hidden md:block">
-            <div class="ml-10 flex items-baseline space-x-8">
+            <div class="ml-10 flex items-baseline space-x-6">
               <a
                 href="#home"
                 class="text-cyber-cyan hover:text-white hover:bg-cyber-cyan/20 px-3 py-2 border border-transparent hover:border-cyber-cyan transition-all duration-300"
                 >HOME</a
               >
               <a
+                href="#about"
+                class="text-gray-400 hover:text-cyber-cyan hover:bg-cyber-cyan/20 px-3 py-2 border border-transparent hover:border-cyber-cyan transition-all duration-300"
+                >ABOUT</a
+              >
+              <a
+                href="#stack"
+                class="text-gray-400 hover:text-cyber-cyan hover:bg-cyber-cyan/20 px-3 py-2 border border-transparent hover:border-cyber-cyan transition-all duration-300"
+                >STACK</a
+              >
+              <a
                 href="#projects"
                 class="text-gray-400 hover:text-cyber-yellow hover:bg-cyber-yellow/20 px-3 py-2 border border-transparent hover:border-cyber-yellow transition-all duration-300"
-                >PROJECTS</a
+                >PRODUCTS</a
               >
               <a
                 href="#contact"
                 class="text-gray-400 hover:text-cyber-magenta hover:bg-cyber-magenta/20 px-3 py-2 border border-transparent hover:border-cyber-magenta transition-all duration-300"
                 >COMMS_LINK</a
               >
+              <!-- CV at /public/cv.pdf -->
+              <a
+                href="/cv.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="text-black bg-cyber-yellow hover:bg-cyber-cyan px-3 py-2 font-bold uppercase tracking-wider transition-all duration-300"
+                >CV ↓</a
+              >
             </div>
           </div>
+          <button
+            id="menu-btn"
+            class="md:hidden text-cyber-cyan border border-cyber-cyan px-3 py-1 uppercase text-sm"
+            aria-label="Toggle menu"
+          >
+            MENU
+          </button>
         </div>
+      </div>
+      <div id="mobile-menu" class="hidden md:hidden border-t border-gray-800 bg-black/95 px-4 py-4 space-y-2">
+        <a href="#home" class="block text-cyber-cyan py-2">HOME</a>
+        <a href="#about" class="block text-gray-300 py-2">ABOUT</a>
+        <a href="#stack" class="block text-gray-300 py-2">STACK</a>
+        <a href="#projects" class="block text-gray-300 py-2">PROJECTS</a>
+        <a href="#contact" class="block text-gray-300 py-2">COMMS_LINK</a>
+        <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" class="block text-cyber-yellow py-2 font-bold">DOWNLOAD_CV ↓</a>
       </div>
     </nav>
 
     <main class="grow">
       <section
         id="home"
-        class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden border-b border-gray-800"
+        data-home-section
+        class="relative pt-24 pb-20 lg:pt-40 lg:pb-32 overflow-hidden border-b border-gray-800"
       >
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
           <div class="mb-4 text-cyber-cyan text-sm sm:text-base opacity-80">
@@ -57,6 +111,24 @@
             <p>&gt; LOADING DEV PROFILE [■■■■■■■■■■] 100%</p>
             <p>&gt; ACCESS GRANTED.</p>
           </div>
+
+          <!-- Recruiter identity block -->
+          <div class="flex flex-wrap items-center gap-3 mb-6 text-xs uppercase tracking-widest">
+            <span class="px-3 py-1 border border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10">
+              ● AVAILABLE_FOR_SOFTWARE_ROLES
+            </span>
+            <!-- location + work mode -->
+            <span class="px-3 py-1 border border-gray-700 text-gray-400">
+              El Marqués, Querétaro, México — Remote / Hybrid
+            </span>
+            <span class="px-3 py-1 border border-gray-700 text-gray-400">
+              3 SOFTWARE PRODUCTS // END_TO_END DELIVERY
+            </span>
+          </div>
+
+          <p class="text-cyber-yellow tracking-widest text-sm mb-2">
+            // Diego Avendaño — Independent Software Developer
+          </p>
 
           <div class="glitch-wrapper mb-6">
             <h1
@@ -73,12 +145,28 @@
           </div>
 
           <p
-            class="mt-4 max-w-2xl text-xl text-gray-400 mb-10 border-l-4 border-cyber-yellow pl-4 bg-cyber-surface/50 py-2"
+            class="mt-4 max-w-2xl text-xl text-gray-400 mb-6 border-l-4 border-cyber-yellow pl-4 bg-cyber-surface/50 py-2"
           >
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
-            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
-            ad minim veniam, quis nostrud exercitation ullamco laboris.
+            Independent software developer building production-ready web products
+            from interface and authentication to data models, payments, and deployment.
+            Explore the case studies to see the product decisions behind each build.
           </p>
+
+          <!-- Quick stats for recruiters (6-sec scan) -->
+          <dl class="grid grid-cols-3 max-w-2xl gap-4 mb-10 text-center">
+            <div class="border border-gray-800 bg-black/50 p-3">
+              <dt class="text-[11px] text-gray-500 uppercase tracking-widest">Delivery</dt>
+              <dd class="text-cyber-cyan font-bold text-lg">END TO END</dd>
+            </div>
+            <div class="border border-gray-800 bg-black/50 p-3">
+              <dt class="text-[11px] text-gray-500 uppercase tracking-widest">Products</dt>
+              <dd class="text-cyber-yellow font-bold text-lg"><span id="projects-count-hero">03</span> SHIPPED</dd>
+            </div>
+            <div class="border border-gray-800 bg-black/50 p-3">
+              <dt class="text-[11px] text-gray-500 uppercase tracking-widest">Focus</dt>
+              <dd class="text-cyber-magenta font-bold text-lg">WEB PRODUCTS</dd>
+            </div>
+          </dl>
 
           <div class="flex flex-wrap gap-4">
             <a
@@ -86,6 +174,14 @@
               class="clip-button inline-flex items-center px-8 py-3 bg-cyber-yellow text-cyber-bg font-bold uppercase tracking-wider hover:bg-cyber-cyan hover:text-cyber-bg hover:shadow-neon-cyan transition-all duration-300 group"
             >
               <span class="mr-2">■</span> Initialize_Projects
+            </a>
+            <a
+              href="/cv.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="clip-button inline-flex items-center px-8 py-3 bg-transparent border-2 border-cyber-cyan text-cyber-cyan font-bold uppercase tracking-wider hover:bg-cyber-cyan hover:text-black hover:shadow-neon-cyan transition-all duration-300"
+            >
+              Download_CV ↓
             </a>
             <a
               href="#contact"
@@ -105,19 +201,138 @@
         ></div>
       </section>
 
-      <section id="projects" class="py-20 relative">
+      <!-- ABOUT -->
+      <section id="about" data-home-section class="py-20 border-b border-gray-800">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div class="flex items-end mb-12 border-b-2 border-gray-800 pb-4">
+          <div class="flex items-end mb-8 border-b-2 border-gray-800 pb-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-widest uppercase relative">
+              <span class="absolute -left-4 top-0 text-cyber-cyan">_</span>ABOUT_DOSSIER
+            </h2>
+            <span class="ml-4 text-cyber-cyan text-sm mb-1 hidden sm:block">// WHO_AM_I</span>
+          </div>
+          <div class="grid md:grid-cols-3 gap-8">
+            <div class="md:col-span-2 clip-card bg-cyber-surface border border-gray-800 p-6 md:p-8">
+              <p class="text-gray-300 mb-4">
+                I design and build software products end to end: user-facing
+                interfaces, authentication, data models, payment flows, and
+                deployment. Each featured product below documents the problem,
+                implementation choices, and engineering tradeoffs behind it.
+              </p>
+              <p class="text-gray-400 text-sm leading-relaxed mb-6">
+                Independent Software Developer focused on end-to-end product delivery:
+                I own each build from interface and data model through authentication,
+                payments, and deployment, documenting decisions and tradeoffs along the way.
+              </p>
+              <ul class="space-y-2 text-sm">
+                <li class="text-gray-400 pl-4 border-l-2 border-cyber-cyan">Three software products: interactive learning, restaurant operations, and personal finance</li>
+                <li class="text-gray-400 pl-4 border-l-2 border-cyber-magenta">Production concerns: integer money, idempotent webhooks, auth, and user-scoped data</li>
+                <li class="text-gray-400 pl-4 border-l-2 border-cyber-yellow">Solo delivery: architecture, implementation, docs, and deployment</li>
+              </ul>
+            </div>
+            <aside class="clip-card bg-black/50 border border-gray-800 p-6 text-sm space-y-4">
+              <div>
+                <h3 class="text-cyber-cyan uppercase tracking-widest text-xs mb-2">&gt; PROFILE.SYS</h3>
+                <dl class="space-y-2 text-gray-400">
+                  <div class="flex justify-between gap-4"><dt>Location</dt><dd class="text-white text-right">El Marqués, Querétaro, México</dd></div>
+                  <div class="flex justify-between gap-4"><dt>Work mode</dt><dd class="text-white text-right">Remote / Hybrid</dd></div>
+                  <div class="flex justify-between gap-4"><dt>Availability</dt><dd class="text-cyber-cyan text-right">Immediate</dd></div>
+                  <div class="flex justify-between gap-4"><dt>Email</dt><dd class="text-white text-right break-all">[Inserta tu email aquí]</dd></div>
+                </dl>
+              </div>
+              <div>
+                <h3 class="text-cyber-yellow uppercase tracking-widest text-xs mb-2">&gt; LANGUAGES</h3>
+                <ul class="text-gray-400 space-y-1">
+                  <li>Spanish — Native</li>
+                  <li>English — C1</li>
+                </ul>
+              </div>
+              <div>
+                <h3 class="text-cyber-magenta uppercase tracking-widest text-xs mb-2">&gt; COLLABORATION</h3>
+                <ul class="text-gray-400 space-y-1">
+                  <li>■ Software engineering roles</li>
+                  <li>■ Product-focused teams</li>
+                  <li>■ Freelance product work</li>
+                  <li>■ Remote</li>
+                </ul>
+              </div>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <!-- STACK -->
+      <section id="stack" data-home-section class="py-20 border-b border-gray-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-end mb-8 border-b-2 border-gray-800 pb-4">
+            <h2 class="text-3xl md:text-5xl font-bold text-white tracking-widest uppercase relative">
+              <span class="absolute -left-4 top-0 text-cyber-yellow">_</span>TECH_ARSENAL
+            </h2>
+            <span class="ml-4 text-cyber-yellow text-sm mb-1 hidden sm:block">// WHAT_I_SHIP_WITH</span>
+          </div>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 text-sm">
+            <div class="clip-card bg-cyber-surface border border-gray-800 p-6">
+              <h3 class="text-cyber-cyan font-bold uppercase tracking-widest mb-4">Frontend</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 border border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10 uppercase text-xs">JavaScript</span>
+                <span class="px-2 py-1 border border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10 uppercase text-xs">TypeScript</span>
+                <span class="px-2 py-1 border border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10 uppercase text-xs">React</span>
+                <span class="px-2 py-1 border border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10 uppercase text-xs">Next.js</span>
+                <span class="px-2 py-1 border border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10 uppercase text-xs">SvelteKit</span>
+                <span class="px-2 py-1 border border-cyber-cyan text-cyber-cyan bg-cyber-cyan/10 uppercase text-xs">Tailwind</span>
+              </div>
+            </div>
+            <div class="clip-card bg-cyber-surface border border-gray-800 p-6">
+              <h3 class="text-cyber-magenta font-bold uppercase tracking-widest mb-4">Backend</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 border border-cyber-magenta text-cyber-magenta bg-cyber-magenta/10 uppercase text-xs">Node.js</span>
+                <span class="px-2 py-1 border border-cyber-magenta text-cyber-magenta bg-cyber-magenta/10 uppercase text-xs">REST_APIs</span>
+                <span class="px-2 py-1 border border-cyber-magenta text-cyber-magenta bg-cyber-magenta/10 uppercase text-xs">SSR</span>
+                <span class="px-2 py-1 border border-cyber-magenta text-cyber-magenta bg-cyber-magenta/10 uppercase text-xs">Better-Auth</span>
+                <span class="px-2 py-1 border border-cyber-magenta text-cyber-magenta bg-cyber-magenta/10 uppercase text-xs">Stripe</span>
+              </div>
+            </div>
+            <div class="clip-card bg-cyber-surface border border-gray-800 p-6">
+              <h3 class="text-cyber-yellow font-bold uppercase tracking-widest mb-4">Data</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 border border-cyber-yellow text-cyber-yellow bg-cyber-yellow/10 uppercase text-xs">MongoDB</span>
+                <span class="px-2 py-1 border border-cyber-yellow text-cyber-yellow bg-cyber-yellow/10 uppercase text-xs">PostgreSQL*</span>
+                <span class="px-2 py-1 border border-cyber-yellow text-cyber-yellow bg-cyber-yellow/10 uppercase text-xs">R2 / S3</span>
+              </div>
+              <p class="text-gray-600 text-xs mt-3">*PostgreSQL where relational modeling applies.</p>
+            </div>
+            <div class="clip-card bg-cyber-surface border border-gray-800 p-6">
+              <h3 class="text-white font-bold uppercase tracking-widest mb-4">Tools</h3>
+              <div class="flex flex-wrap gap-2">
+                <span class="px-2 py-1 border border-gray-600 text-gray-300 uppercase text-xs">Git</span>
+                <span class="px-2 py-1 border border-gray-600 text-gray-300 uppercase text-xs">GitHub</span>
+                <span class="px-2 py-1 border border-gray-600 text-gray-300 uppercase text-xs">Vercel</span>
+                <span class="px-2 py-1 border border-gray-600 text-gray-300 uppercase text-xs">Docker*</span>
+                <span class="px-2 py-1 border border-gray-600 text-gray-300 uppercase text-xs">CI/CD</span>
+                <span class="px-2 py-1 border border-gray-600 text-gray-300 uppercase text-xs">Vite</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects" data-home-section class="py-20 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div class="flex items-end mb-4 border-b-2 border-gray-800 pb-4">
             <h2
               class="text-3xl md:text-5xl font-bold text-white tracking-widest uppercase relative"
             >
               <span class="absolute -left-4 top-0 text-cyber-cyan">_</span
-              >PROJECT_LOG
+              >FEATURED_SOFTWARE_PRODUCTS
             </h2>
             <span class="ml-4 text-cyber-yellow text-sm mb-1 hidden sm:block"
               >// FILES FOUND: <span id="projects-count">03</span></span
             >
           </div>
+          <p class="text-gray-500 text-sm mb-12 max-w-3xl">
+            A selection of independently developed software products. Each case
+            study covers the user problem, system architecture, engineering
+            tradeoffs, and what I would improve next.
+          </p>
 
           <div id="projects-grid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             <!-- Rendered by src/main.js from src/data/projects.js -->
@@ -148,40 +363,43 @@
       </div>
 
       <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div id="contact-terminal" class="bg-cyber-surface border border-gray-800 p-6 clip-card">
+        <div id="contact-terminal" data-home-section class="bg-cyber-surface border border-gray-800 p-6 clip-card">
           <p class="text-cyber-cyan text-sm mb-4">
             &gt; root@localhost:~$ ./open_comms_channel.sh
           </p>
 
-          <h2 class="text-2xl text-white uppercase font-bold mb-6">
+          <h2 class="text-2xl text-white uppercase font-bold mb-4">
             Contact_Terminal
           </h2>
 
-          <p class="text-gray-400 mb-8">
-            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui
-            officia deserunt mollit anim id est laborum. [Insert encrypted
-            message below].
+          <p class="text-gray-400 mb-4">
+            Available to discuss software product development and full-stack delivery.
+            I design and ship end-to-end web applications — from interface and data
+            models to auth, payments, and deployment.
           </p>
 
+          <!-- Direct contact line -->
+          <div class="border border-gray-800 bg-black/50 p-4 mb-8 text-sm flex flex-col sm:flex-row gap-2 sm:items-center sm:justify-between">
+            <span class="text-gray-500">DIRECT_LINE: <span class="text-cyber-cyan">[Inserta tu email aquí]</span></span>
+            <span class="text-gray-500">RESPONSE: <span class="text-cyber-yellow">&lt; 24H</span></span>
+          </div>
+
           <div class="flex flex-col sm:flex-row gap-4 justify-center">
-            <a
-              href="mailto:#"
-              class="flex-1 text-center py-3 border-2 border-cyber-cyan text-cyber-cyan hover:bg-cyber-cyan hover:text-black transition-colors uppercase font-bold text-sm tracking-wider"
+            <span
+              class="flex-1 text-center py-3 border-2 border-cyber-cyan text-cyber-cyan uppercase font-bold text-sm tracking-wider"
             >
               SEND_EMAIL
-            </a>
-            <a
-              href="#"
-              class="flex-1 text-center py-3 border-2 border-cyber-magenta text-cyber-magenta hover:bg-cyber-magenta hover:text-white transition-colors uppercase font-bold text-sm tracking-wider"
+            </span>
+            <span
+              class="flex-1 text-center py-3 border-2 border-cyber-magenta text-cyber-magenta uppercase font-bold text-sm tracking-wider"
             >
               LINKEDIN_NET
-            </a>
-            <a
-              href="#"
-              class="flex-1 text-center py-3 border-2 border-cyber-yellow text-cyber-yellow hover:bg-cyber-yellow hover:text-black transition-colors uppercase font-bold text-sm tracking-wider"
+            </span>
+            <span
+              class="flex-1 text-center py-3 border-2 border-cyber-yellow text-cyber-yellow uppercase font-bold text-sm tracking-wider"
             >
               GITHUB_REPO
-            </a>
+            </span>
           </div>
         </div>
 
@@ -189,7 +407,10 @@
           class="mt-16 text-center border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
         >
           <p class="text-gray-600 text-xs uppercase tracking-widest">
-            © 2026_FULL_STACK_DEVELOPER. ALL RIGHTS RESERVED.
+            © 2026 DIEGO AVENDAÑO. FULL-STACK DEVELOPER. ALL RIGHTS RESERVED.
+          </p>
+          <p class="text-gray-600 text-xs uppercase tracking-widest">
+            El Marqués, Querétaro, México — <a href="/cv.pdf" class="text-cyber-cyan hover:text-white">CV.PDF</a>
           </p>
           <div class="flex gap-2">
             <span class="w-2 h-2 bg-cyber-magenta animate-pulse"></span>
@@ -203,5 +424,16 @@
     </footer>
 
     <script type="module" src="/src/main.js"></script>
+    <script>
+      // Mobile menu (no framework needed)
+      document.getElementById('menu-btn')?.addEventListener('click', () => {
+        document.getElementById('mobile-menu')?.classList.toggle('hidden')
+      })
+      document.querySelectorAll('#mobile-menu a').forEach((a) =>
+        a.addEventListener('click', () =>
+          document.getElementById('mobile-menu')?.classList.add('hidden'),
+        ),
+      )
+    </script>
   </body>
 </html>
