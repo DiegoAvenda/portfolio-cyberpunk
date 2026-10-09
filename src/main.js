@@ -119,6 +119,30 @@ function renderProjects() {
 
 /* ---------- Detail page (hash routing) ---------- */
 
+// Escapa texto para inyectarlo vía innerHTML sin que el parser de HTML
+// interprete etiquetas reales (p.ej. "</script>", "{#key ...}", "<style>").
+const escapeHtml = (s) =>
+  String(s)
+    .replace(/&/g, '&amp;')
+    .replace(/</g, '&lt;')
+    .replace(/>/g, '&gt;')
+    .replace(/"/g, '&quot;')
+    .replace(/'/g, '&#39;')
+
+// Renderiza un campo de prosa: acepta un string (un <p>) o un array
+// (lista con viñetas), manteniendo compatibilidad con datos anteriores.
+function renderProse(field, a) {
+  if (Array.isArray(field)) {
+    return `<ul class="space-y-2">${field
+      .map(
+        (line) =>
+          `<li class="text-gray-400 pl-4 border-l-2 ${a.corner}">${escapeHtml(line)}</li>`,
+      )
+      .join('')}</ul>`
+  }
+  return `<p>${escapeHtml(field)}</p>`
+}
+
 function caseSection(title, a, body) {
   return `
     <section class="mb-8">
@@ -169,10 +193,10 @@ function renderDetailContent(p) {
     .map(
       (t) => `
         <li class="mb-2">
-          <span class="text-white">${t.chose}</span>
+          <span class="text-white">${escapeHtml(t.chose)}</span>
           <span class="text-gray-500">over</span>
-          <span class="text-white">${t.over}</span>
-          <span class="text-gray-500">—</span> ${t.because}
+          <span class="text-white">${escapeHtml(t.over)}</span>
+          <span class="text-gray-500">—</span> ${escapeHtml(t.because)}
         </li>`,
     )
     .join('')
@@ -181,8 +205,8 @@ function renderDetailContent(p) {
     .map(
       (ch) => `
         <li class="mb-3">
-          <p class="text-white">${ch.issue}</p>
-          <p class="text-gray-400 pl-4 border-l-2 ${a.corner}">${ch.fix}</p>
+          <p class="text-white">${escapeHtml(ch.issue)}</p>
+          <p class="text-gray-400 pl-4 border-l-2 ${a.corner}">${escapeHtml(ch.fix)}</p>
         </li>`,
     )
     .join('')
@@ -191,11 +215,11 @@ function renderDetailContent(p) {
     header +
     `
     <div class="clip-card bg-cyber-surface border border-gray-800 p-6 md:p-8 text-sm leading-relaxed">
-      ${caseSection('PROBLEM', a, `<p>${c.problem}</p>`)}
-      ${caseSection('ARCHITECTURE', a, `<p>${c.architecture}</p>`)}
+      ${caseSection('PROBLEM', a, renderProse(c.problem, a))}
+      ${caseSection('ARCHITECTURE', a, renderProse(c.architecture, a))}
       ${caseSection('TRADEOFFS', a, `<ul>${tradeoffs}</ul>`)}
       ${caseSection('CHALLENGES', a, `<ul>${challenges}</ul>`)}
-      ${caseSection('RETROSPECTIVE', a, `<p>${c.retrospective}</p>`)}
+      ${caseSection('RETROSPECTIVE', a, renderProse(c.retrospective, a))}
     </div>`
   )
 }
