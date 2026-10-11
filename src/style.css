@@ -2,25 +2,25 @@
 
 /* Tailwind v4 theme (migrated from the old tailwind.config in the HTML) */
 @theme {
-  --color-cyber-yellow: #fcee0a;
-  --color-cyber-cyan: #00f0ff;
-  --color-cyber-magenta: #ff003c;
-  --color-cyber-bg: #050505;
-  --color-cyber-surface: #121212;
+  --color-cyber-yellow: #d97b23;
+  --color-cyber-cyan: #4a7c8c;
+  --color-cyber-magenta: #8b1a1a;
+  --color-cyber-bg: #0a0a0a;
+  --color-cyber-surface: #141414;
 
   --font-mono: "Share Tech Mono", ui-monospace, monospace;
 
-  --shadow-neon-cyan: 0 0 10px #00f0ff, 0 0 20px rgba(0, 240, 255, 0.3);
-  --shadow-neon-magenta: 0 0 10px #ff003c, 0 0 20px rgba(255, 0, 60, 0.3);
-  --shadow-neon-yellow: 0 0 10px #fcee0a, 0 0 20px rgba(252, 238, 10, 0.3);
+  --shadow-neon-cyan: 0 0 10px #4a7c8c, 0 0 20px rgba(74, 124, 140, 0.3);
+  --shadow-neon-magenta: 0 0 10px #8b1a1a, 0 0 20px rgba(139, 26, 26, 0.3);
+  --shadow-neon-yellow: 0 0 10px #d97b23, 0 0 20px rgba(217, 123, 35, 0.3);
 }
 
 /* Base Styles & Background Grid */
 body {
-  background-color: #050505;
+  background-color: #0a0a0a;
   background-image:
-    linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    linear-gradient(rgba(74, 124, 140, 0.03) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(74, 124, 140, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
   color: #e5e7eb;
   overflow-x: hidden;
@@ -31,11 +31,11 @@ body {
   width: 8px;
 }
 ::-webkit-scrollbar-track {
-  background: #050505;
-  border-left: 1px solid #ff003c;
+  background: #0a0a0a;
+  border-left: 1px solid #8b1a1a;
 }
 ::-webkit-scrollbar-thumb {
-  background: #fcee0a;
+  background: #d97b23;
 }
 
 /* Cyberpunk Clipped Corners */
@@ -70,14 +70,14 @@ body {
 }
 .glitch::before {
   left: 3px;
-  text-shadow: -2px 0 #ff003c;
+  text-shadow: -2px 0 #8b1a1a;
   clip: rect(24px, 550px, 90px, 0);
   animation: glitch-anim-2 3s infinite linear alternate-reverse;
   z-index: -1;
 }
 .glitch::after {
   left: -3px;
-  text-shadow: -2px 0 #00f0ff;
+  text-shadow: -2px 0 #4a7c8c;
   clip: rect(85px, 550px, 140px, 0);
   animation: glitch-anim 2.5s infinite linear alternate-reverse;
   z-index: -2;
