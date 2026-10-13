@@ -1,6 +1,6 @@
 export const projects = [
   {
-    slug: 'avendcodes',
+    slug: 'avendcode',
     hex: '0x01A4',
     title: 'AvendCodes',
     productType: 'Interactive learning product',
@@ -18,7 +18,7 @@ export const projects = [
       { label: 'CodeMirror_6', color: 'cyan' },
       { label: 'Tailwind_v4', color: 'yellow' },
     ],
-    links: { demo: null, repo: null },
+    links: { demo: 'https://avencode.vercel.app/', repo: 'https://github.com/DiegoAvenda/avencode' },
     caseStudy: {
       problem:
         'Teach JavaScript, DOM, Canvas 2D, and core data structures by building — not by watching videos. The problem: beginners can read about arrays, typed memory, DFS/BFS and ring buffers, but they do not feel why they matter. I wanted an interactive, zero-setup course where each lesson is a small runnable project (a Pixel Art Editor, lessons 1–18), with HTML/CSS/JS editing, instant visual feedback, and a captured console — all running 100% in the browser with progress in localStorage.',
@@ -115,7 +115,7 @@ export const projects = [
       { label: 'Stripe', color: 'cyan' },
       { label: 'Cloudflare_R2', color: 'magenta' },
     ],
-    links: { demo: null, repo: null },
+    links: { demo: 'https://contaco.store', repo: 'https://github.com/DiegoAvenda/conta' },
     caseStudy: {
       problem:
         "Small Mexican restaurants juggle 5 disconnected tools: a POS, WhatsApp/commission-based delivery, Excel for expenses, and a painful month-end scramble for SAT taxes. The technical question: can a single multi-tenant SvelteKit app unify in-store sales, commission-free online ordering, expense tracking, and a useful fiscal estimate for Mexico's RESICO regime — without becoming unmaintainable or financially incorrect? Key constraints: money must never drift (no float errors), online payments must never create duplicate orders, and tax numbers must map to real SAT concepts (effectively-collected income, transferred vs. creditable IVA, tiered RESICO ISR rate).",
@@ -203,7 +203,7 @@ export const projects = [
       { label: 'Better_Auth', color: 'cyan' },
       { label: 'Zustand', color: 'yellow' },
     ],
-    links: { demo: null, repo: null },
+    links: { demo: 'https://next-fincheck.vercel.app/', repo: 'https://github.com/DiegoAvenda/next-fincheck' },
     caseStudy: {
       problem:
         'FinCheck is a personal finance dashboard that answers: "Where is my money going, am I over budget, and what should I do next?" It tracks income/expenses, breaks spending down by category, fires budget alerts, evaluates the 50/30/20 rule, computes a financial health score, and generates contextual savings/investment advice (including compound-interest projections). A second technical problem was migration: replacing the previous AWS Amplify Gen 2 backend (Cognito + DynamoDB/AppSync) with a self-hostable stack — Google OAuth via Better Auth + MongoDB — without breaking the existing UX.',
