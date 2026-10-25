@@ -17,7 +17,7 @@ export const profile = {
   openTo: ['Software product development', 'Full-stack delivery', 'Freelance product work', 'Remote / Hybrid'],
   about: [
     'Independent software developer building production-ready web products across frontend, APIs, authentication, data, payments, and deployment.',
-    'Solo developer owning each featured product end to end: Contaco, FinCheck, and AvendCodes — with documented architecture, tradeoffs, and delivery.',
+    'Solo developer owning each featured product end to end: Contaco, NAVEDDY, and AvendCodes — with documented architecture, tradeoffs, and delivery.',
   ],
   highlights: [
     'Three end-to-end software products: learning platform, restaurant operations SaaS, and finance dashboard',

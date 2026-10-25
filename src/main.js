@@ -4,12 +4,12 @@ import { projects } from './data/projects.js'
 
 import avencodeImg from './assets/avencode.png'
 import contacoImg from './assets/contaco.png'
-import fincheckImg from './assets/fincheck.png'
+import naveddyImg from './assets/fincheck.png'
 
 const PROJECT_IMAGES = {
-  avendcodes: avencodeImg,
+  avendcode: avencodeImg,
   contaco: contacoImg,
-  fincheck: fincheckImg,
+  naveddy: naveddyImg,
 }
 
 const TECH_STYLES = {
